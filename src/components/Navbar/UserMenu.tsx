@@ -17,6 +17,7 @@ const UserMenu =  () => {
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
+          onClick={() => {}}
           className="
             hidden
             md:block
@@ -73,7 +74,16 @@ const UserMenu =  () => {
           "
         >
           <div className="flex flex-col cursor-pointer">
-            
+            <>
+            <MenuItem 
+                onClick={() => {}}
+                label='Login'
+              />
+              <MenuItem 
+                onClick={() => {}}
+                label='Sign Up'
+              />
+            </>
           </div>
         </div>
       )}

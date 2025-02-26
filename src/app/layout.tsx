@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import {  Nunito } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
+import ClientOnly from "@/components/ClientOnly";
+import Modal from "@/components/modals/Modal";
 
 const font = Nunito({
-  subsets:["latin"],
+  subsets: ["latin"],
 })
 
 
@@ -23,7 +25,10 @@ export default function RootLayout({
       <body
         className={` ${font.className} antialiased`}
       >
-        <Navbar />
+        <ClientOnly>
+          <Modal isOpen={true} title="Login Modal"  />
+          <Navbar />
+        </ClientOnly>
         {children}
       </body>
     </html>

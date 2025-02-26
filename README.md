@@ -1,6 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Airbnb Clone
 
-## Getting Started
+A modern web application that replicates core Airbnb functionality, built with Next.js 15 and TypeScript.
+
+## 🚀 Features
+
+- Modern and responsive UI using Tailwind CSS
+- Server-side rendering with Next.js
+- TypeScript for type safety
+- Component-based architecture
+- Responsive navigation system
+- User authentication system
+- Interactive search functionality
+- Mobile-first design approach
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15.1.7
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons
+- **UI Components:** Custom-built components
+- **Font:** Nunito (Google Fonts)
+
+## 🏃‍♂️ Getting Started
+
+### Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone [your-repository-url]
+```
 
 First, run the development server:
 
@@ -34,3 +68,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
