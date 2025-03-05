@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 import Button from "../ui/Button";
 import { useTranslation } from 'react-i18next';
 import i18n from "../language/i18n"
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
     const { t } = useTranslation();
@@ -93,7 +94,7 @@ const RegisterModal = () => {
                 outline
                 label={t('continueWithGithub')}
                 icon={AiFillGithub}
-                onClick={() => { }}
+                onClick={() => { signIn('github') }}
             />
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <div className="justify-center flex flex-row items-center gap-2">

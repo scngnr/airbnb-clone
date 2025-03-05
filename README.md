@@ -52,7 +52,11 @@ npm install
 yarn install
 ```
 
-3. Create a `.env` file in the root directory and add necessary environment variables.
+3. Create a `.env` file in the root directory and add necessary environment variables:
+```env
+DATABASE_URL="your-database-connection-string"
+NEXTAUTH_SECRET="your-nextauth-secret"
+```
 
 4. Run the development server:
 ```bash
@@ -67,18 +71,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```
 /
+├── pages/               # Pages directory for API routes
+│   └── api/             # API endpoints
+├── prisma/              # Prisma ORM configuration
+│   └── schema.prisma    # Database schema
 ├── src/
-│   ├── app/              # Next.js app directory
-│   ├── components/       # Reusable UI components
-│   │   ├── Inputs/      # Form input components
-│   │   ├── Navbar/      # Navigation components
-│   │   ├── modals/      # Modal components
-│   │   └── ui/          # Basic UI components
-│   ├── hooks/           # Custom React hooks
-│   └── providers/       # Context providers
-├── public/              # Static files
-│   └── images/          # Image assets
-└── package.json         # Project dependencies
+│   ├── app/            # Next.js app directory
+│   ├── components/     # Reusable UI components
+│   │   ├── Inputs/    # Form input components
+│   │   ├── Navbar/    # Navigation components
+│   │   ├── modals/    # Modal components
+│   │   └── ui/        # Basic UI components
+│   ├── hooks/         # Custom React hooks
+│   └── libs/          # Utility libraries
+├── public/            # Static files
+│   └── images/        # Image assets
+└── package.json       # Project dependencies
 ```
 
 ## 🔧 Development
@@ -157,7 +165,11 @@ npm install
 yarn install
 ```
 
-3. Kök dizinde bir `.env` dosyası oluşturun ve gerekli ortam değişkenlerini ekleyin.
+3. Kök dizinde bir `.env` dosyası oluşturun ve gerekli ortam değişkenlerini ekleyin:
+```env
+DATABASE_URL="veritabanı-bağlantı-dizginiz"
+NEXTAUTH_SECRET="nextauth-gizli-anahtarınız"
+```
 
 4. Geliştirme sunucusunu başlatın:
 ```bash
@@ -172,14 +184,18 @@ Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açarak
 
 ```
 /
+├── pages/               # API rotaları için sayfalar dizini
+│   └── api/             # API uç noktaları
+├── prisma/              # Prisma ORM yapılandırması
+│   └── schema.prisma    # Veritabanı şeması
 ├── src/
-│   ├── app/              # Next.js uygulama dizini
-│   ├── components/       # Yeniden kullanılabilir UI bileşenleri
-│   │   ├── Inputs/      # Form giriş bileşenleri
-│   │   ├── Navbar/      # Gezinme bileşenleri
-│   │   ├── modals/      # Modal bileşenleri
-│   │   └── ui/          # Temel UI bileşenleri
-│   ├── hooks/           # Özel React hooks
+│   ├── app/            # Next.js uygulama dizini
+│   ├── components/     # Yeniden kullanılabilir UI bileşenleri
+│   │   ├── Inputs/    # Form giriş bileşenleri
+│   │   ├── Navbar/    # Gezinme bileşenleri
+│   │   ├── modals/    # Modal bileşenleri
+│   │   └── ui/        # Temel UI bileşenleri
+│   ├── hooks/         # Özel React hooks
 │   └── providers/       # Context sağlayıcıları
 ├── public/              # Statik dosyalar
 │   └── images/          # Görsel varlıklar

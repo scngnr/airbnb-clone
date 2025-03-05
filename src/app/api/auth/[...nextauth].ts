@@ -6,8 +6,6 @@ import CredentialsProvider  from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 
 import prisma from "../../../libs/prismadb";
-import { logAuth } from "./_log/_log";
-
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -29,7 +27,7 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          logAuth('warning', 'Eksik kimlik bilgileri');
+          //logAuth('warning', 'Eksik kimlik bilgileri');
           throw new Error("E-posta ve şifre gereklidir");
         }
         const user = await prisma.user.findUnique({
@@ -38,7 +36,7 @@ export const authOptions: AuthOptions = {
           },
         });
         if (!user || !user?.hashedPassword) {
-          logAuth('warning', 'Kullanıcı bulunamadı', { email: credentials.email });
+          //logAuth('warning', 'Kullanıcı bulunamadı', { email: credentials.email });
           throw new Error("Geçersiz e-posta veya şifre");
         }
         const isCorrectPassword = await bcrypt.compare(
@@ -46,10 +44,10 @@ export const authOptions: AuthOptions = {
           user.hashedPassword
         );
         if (!isCorrectPassword) {
-          logAuth('warning', 'Yanlış şifre', { email: credentials.email });
+          //logAuth('warning', 'Yanlış şifre', { email: credentials.email });
           throw new Error("Geçersiz e-posta veya şifre");
         }
-        logAuth('info', 'Başarılı giriş', { email: user.email });
+        //logAuth('info', 'Başarılı giriş', { email: user.email });
         return user;
       },
     }),
