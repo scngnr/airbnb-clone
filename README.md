@@ -147,7 +147,7 @@ Next.js 15 ve TypeScript ile geliştirilmiş, Airbnb'nin temel işlevselliğini 
 - Etkileşimli arama işlevselliği
 - Önce mobil tasarım yaklaşımı
 
-## 🛠️ Teknoloji Yığını
+## 🛠️ Teknoloji Stack
 
 - **Framework:** Next.js 15.1.7
 - **Programlama Dili:** TypeScript
