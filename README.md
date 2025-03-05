@@ -54,9 +54,26 @@ yarn install
 
 3. Create a `.env` file in the root directory and add necessary environment variables:
 ```env
+# Database Configuration
 DATABASE_URL="your-database-connection-string"
+
+# Authentication
 NEXTAUTH_SECRET="your-nextauth-secret"
+
+# GitHub OAuth
+GITHUB_ID="your-github-oauth-app-id"
+GITHUB_SECRET="your-github-oauth-app-secret"
+
+# Next Auth Configuration
+NEXTAUTH_URL="http://localhost:3000"
 ```
+
+To set up GitHub OAuth:
+1. Go to GitHub Settings > Developer settings > OAuth Apps
+2. Create a new OAuth application
+3. Set Homepage URL to `http://localhost:3000`
+4. Set Authorization callback URL to `http://localhost:3000/api/auth/callback/github`
+5. Copy the Client ID and Client Secret to your `.env` file
 
 4. Run the development server:
 ```bash
@@ -167,9 +184,26 @@ yarn install
 
 3. Kök dizinde bir `.env` dosyası oluşturun ve gerekli ortam değişkenlerini ekleyin:
 ```env
+# Veritabanı Yapılandırması
 DATABASE_URL="veritabanı-bağlantı-dizginiz"
+
+# Kimlik Doğrulama
 NEXTAUTH_SECRET="nextauth-gizli-anahtarınız"
+
+# GitHub OAuth
+GITHUB_ID="github-oauth-uygulama-id'niz"
+GITHUB_SECRET="github-oauth-uygulama-gizli-anahtarınız"
+
+# Next Auth Yapılandırması
+NEXTAUTH_URL="http://localhost:3000"
 ```
+
+GitHub OAuth kurulumu için:
+1. GitHub Ayarlar > Geliştirici ayarları > OAuth Uygulamaları'na gidin
+2. Yeni bir OAuth uygulaması oluşturun
+3. Ana sayfa URL'sini `http://localhost:3000` olarak ayarlayın
+4. Yetkilendirme callback URL'sini `http://localhost:3000/api/auth/callback/github` olarak ayarlayın
+5. İstemci ID ve İstemci Gizli Anahtarını `.env` dosyanıza kopyalayın
 
 4. Geliştirme sunucusunu başlatın:
 ```bash
