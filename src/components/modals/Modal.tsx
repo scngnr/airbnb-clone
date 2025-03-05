@@ -112,6 +112,7 @@ const Modal = (
                                     >
                                     </Button>
                                 </div>
+                                {footer}
                             </div>
                         </div>
                     </div>

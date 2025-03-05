@@ -1,0 +1,16 @@
+{
+  "welcome": "Kiralık Evime Hoşgeldiniz",
+  "createAccount": "Yeni hesap oluştur",
+  "register": "Kayıt Ol",
+  "continue": "Devam Et",
+  "email": "E-posta",
+  "name": "İsim",
+  "password": "Şifre",
+  "alreadyHaveAccount": "Zaten hesabınız var mı?",
+  "login": "Giriş Yap",
+  "SignUp": "Kayıt Ol",
+  "logintoyouraccount": "Hesabına giriş yap",
+  "continueWithGoogle": "Google ile devam et",
+  "continueWithGithub": "Github ile devam et",
+  "loginSuccess": "Hoşgeldin Giriş Başarılı"
+}

@@ -1,0 +1,16 @@
+{
+  "welcome": "Welcome to my Rent House",
+  "createAccount": "Create a new account",
+  "register": "Register",
+  "continue": "Continue",
+  "email": "Email",
+  "name": "Name",
+  "password": "Password",
+  "alreadyHaveAccount": "Already have an account?",
+  "login": "Log in",
+  "SignUp": "Sign Up",
+  "logintoyouraccount": "Log in to your account",
+  "continueWithGoogle": "Continue with Google",
+  "continueWithGithub": "Continue with Github",
+  "loginSuccess": "Welcome Login Successful"
+}
