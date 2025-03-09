@@ -15,6 +15,7 @@ import Button from "../ui/Button";
 import { useTranslation } from 'react-i18next';
 import i18n from "../language/i18n"
 import { signIn } from "next-auth/react";
+import { sign } from "crypto";
 
 const RegisterModal = () => {
     const { t } = useTranslation();
@@ -88,7 +89,7 @@ const RegisterModal = () => {
                 outline
                 label={t('continueWithGoogle')}
                 icon={FcGoogle}
-                onClick={() => { }}
+                onClick={() => { signIn('google') }}
             />
             <Button
                 outline
