@@ -15,11 +15,12 @@ import Button from "../ui/Button";
 import { useTranslation } from 'react-i18next';
 import i18n from "../language/i18n"
 import { signIn } from "next-auth/react";
-import { sign } from "crypto";
+import useLoginModal from "@/hooks/useLoginModal";
 
 const RegisterModal = () => {
     const { t } = useTranslation();
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const {
@@ -50,6 +51,11 @@ const RegisterModal = () => {
                 setIsLoading(false);
             });
     }
+
+    const toggle = useCallback(() => {
+        loginModal.onOpen();
+        registerModal.onClose();
+    }, [registerModal, loginModal])
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -100,7 +106,7 @@ const RegisterModal = () => {
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <div className="justify-center flex flex-row items-center gap-2">
                     <div>{t('alreadyHaveAccount')}</div>
-                    <div onClick={registerModal.onClose} className="text-neutral-800 cursor-pointer hover:underline">
+                    <div onClick={toggle} className="text-neutral-800 cursor-pointer hover:underline">
                         {t('login')}
                     </div>
                 </div>
