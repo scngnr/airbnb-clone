@@ -12,6 +12,7 @@ import { signOut } from 'next-auth/react';
 
 import i18n from "../language/i18n"
 import { useTranslation } from 'react-i18next';
+import useRentModal from '@/hooks/useRentModal';
 
 interface UserMenuProps {
   currentUser?: User | null;
@@ -22,6 +23,7 @@ const UserMenu = ({currentUser}:UserMenuProps) => {
 
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +35,9 @@ const UserMenu = ({currentUser}:UserMenuProps) => {
     if(!currentUser){
       return loginModal.onOpen();
     }
-  }, [currentUser, loginModal]);
+
+    rentModal.onOpen();
+  }, [currentUser, loginModal, rentModal]);
 
   if(!i18n.language){
     return null

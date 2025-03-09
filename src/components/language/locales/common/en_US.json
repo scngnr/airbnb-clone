@@ -15,5 +15,6 @@
   "loginSuccess": "Welcome Login Successful",
   "firstTimeUsingApp": "First time using the app?",
   "createAnAccount": "Create an account",
-  "rentNow" : "Rent Now"
+  "rentNow" : "Rent Now",
+  "RentYourOwnHouse": "Rent Your Own House"
 }
