@@ -24,7 +24,7 @@ model User {
   updatedAt      DateTime  @updatedAt
   faveriteIds    String[]  @db.ObjectId
 
-  accunts      Account[]
+  accounts     Account[]
   listings     Listing[]
   reservations Reservation[]
 }
