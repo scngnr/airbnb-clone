@@ -10,13 +10,14 @@ import i18n from "../language/i18n";
 import { useTranslation } from 'react-i18next';
 
 import Container from "@/components/Container";
+import Categories from "./Categories/Categories";
 
 
 interface NavbarProps {
     currentUser?: User | null;
 }
 
-const Navbar = ({currentUser}: NavbarProps) => {
+const Navbar = ({ currentUser }: NavbarProps) => {
     const { t } = useTranslation();
 
     const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -45,6 +46,7 @@ const Navbar = ({currentUser}: NavbarProps) => {
                     </div>
                 </Container>
             </div>
+            <Categories />
         </div>
     );
 }
