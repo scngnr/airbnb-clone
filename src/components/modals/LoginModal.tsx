@@ -3,7 +3,7 @@
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import Modal from "./Modal";
@@ -62,6 +62,11 @@ const LoginModal = () => {
         })
     }
 
+    const toggle = useCallback(() => {
+        registerModal.onOpen();
+        loginModal.onClose();
+    }, [registerModal, loginModal])
+
     const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading
@@ -103,9 +108,9 @@ const LoginModal = () => {
             />
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <div className="justify-center flex flex-row items-center gap-2">
-                    <div>{t('alreadyHaveAccount')}</div>
-                    <div onClick={loginModal.onClose} className="text-neutral-800 cursor-pointer hover:underline">
-                        {t('login')}
+                <div>{t('firstTimeUsingApp')}</div>
+                <div onClick={toggle} className="text-neutral-800 cursor-pointer hover:underline">
+                        {t('createAnAccount')}
                     </div>
                 </div>
             </div>
