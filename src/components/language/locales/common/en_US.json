@@ -14,5 +14,6 @@
   "continueWithGithub": "Continue with Github",
   "loginSuccess": "Welcome Login Successful",
   "firstTimeUsingApp": "First time using the app?",
-  "createAnAccount": "Create an account"
+  "createAnAccount": "Create an account",
+  "rentNow" : "Rent Now"
 }
