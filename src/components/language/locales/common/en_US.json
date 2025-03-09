@@ -12,5 +12,7 @@
   "logintoyouraccount": "Log in to your account",
   "continueWithGoogle": "Continue with Google",
   "continueWithGithub": "Continue with Github",
-  "loginSuccess": "Welcome Login Successful"
+  "loginSuccess": "Welcome Login Successful",
+  "firstTimeUsingApp": "First time using the app?",
+  "createAnAccount": "Create an account"
 }
