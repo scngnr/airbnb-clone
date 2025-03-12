@@ -118,8 +118,8 @@ const UserMenu = ({currentUser}:UserMenuProps) => {
                   label={t('My reservations')}
                 />
                 <MenuItem
-                  onClick={() => {}}
-                  label={t('My home')}
+                  onClick={() => { rentModal.onOpen()  }}
+                  label={t('RentYourOwnHouse')}
                 />
                 <hr />
                 <MenuItem

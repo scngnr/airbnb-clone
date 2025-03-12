@@ -16,5 +16,10 @@
   "firstTimeUsingApp": "First time using the app?",
   "createAnAccount": "Create an account",
   "rentNow" : "Rent Now",
-  "RentYourOwnHouse": "Rent Your Own House"
+  "RentYourOwnHouse": "Rent Your Own House",
+  "Submit" : "Submit",
+  "Created" : "Created",
+  "Back" : "Back",
+  "null" : "",
+  "undefined" : ""
 }
