@@ -21,5 +21,7 @@
   "Created" : "Created",
   "Back" : "Back",
   "null" : "",
-  "undefined" : ""
+  "undefined" : "",
+  "actionLabel" : "{action}",
+  "secondaryActionLabel" : "{secondaryAction}"
 }

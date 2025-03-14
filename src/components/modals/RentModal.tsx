@@ -7,15 +7,16 @@ import useRentModal from "@/hooks/useRentModal";
 import { categories } from "../Navbar/Categories/Categories";
 import Heading from "../Heading";
 import CategoryInput from "../Inputs/CategoryInput";
-import {  FieldValues, useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
+import CountrySelect from "../Inputs/CountrySelect";
 
 enum STEPS {
-    CATEGORY,
-    LOCATION,
-    INFO,
-    IMAGES,
-    DESCRIPTION,
-    PRICE,
+    CATEGORY = 0,
+    LOCATION = 1,
+    INFO = 2,
+    IMAGES = 3,
+    DESCRIPTION = 4,
+    PRICE = 5,
 }
 
 const RentModal = () => {
@@ -47,9 +48,10 @@ const RentModal = () => {
     });
 
     const category = watch('category');
+    const location = watch('location');
 
     const setCustumValue = (id: string, value: any) => {
-        setValue(id, value,{
+        setValue(id, value, {
             shouldValidate: true,
             shouldDirty: true,
             shouldTouch: true,
@@ -103,13 +105,28 @@ const RentModal = () => {
         </div>
     );
 
+    if (currentStep === STEPS.LOCATION) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title={t('Where is your place located?')}
+                    subtitle={t('Add a location')}
+                />
+                <CountrySelect
+                    value={location}
+                    onChange={(value) => setCustumValue('location', value)}
+                />
+            </div>
+        );
+    }
+
     return (
         <Modal
             isOpen={rentModal.isOpen}
             onClose={rentModal.onClose}
-            onSubmit={rentModal.onClose}
-            actionLabel={t(actionLabel)}
-            secondaryActionLabel={t(secondaryActionLabel)}
+            onSubmit={onNext}
+            actionLabel={t(actionLabel, { action: "Next" })}
+            secondaryActionLabel={t(secondaryActionLabel, { secondaryAction: "Back" })}
             secondaryAction={currentStep === STEPS.CATEGORY ? undefined : onBack}
             title={t('RentYourOwnHouse')}
             body={bodyContent}
