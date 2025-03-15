@@ -10,6 +10,7 @@ import CategoryInput from "../Inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../Inputs/CountrySelect";
 import dynamic from "next/dynamic";
+import Counter from "../Inputs/Counter";
 
 enum STEPS {
     CATEGORY = 0,
@@ -39,9 +40,9 @@ const RentModal = () => {
         defaultValues: {
             category: '',
             location: '',
-            guestCount: 0,
-            roomCount: 0,
-            bathroomCount: 0,
+            guestCount: 1,
+            roomCount: 1,
+            bathroomCount: 1,
             imageSrc: '',
             price: 1,
             description: '',
@@ -50,8 +51,11 @@ const RentModal = () => {
 
     const category = watch('category');
     const location = watch('location');
-    
-    const Map = useMemo(() => dynamic(() => import ('../Map'), { ssr: false }), [location])
+    const guestCount = watch('guestCount');
+    const roomCount = watch('roomCount');
+    const bathroomCount = watch('bathroomCount');
+
+    const Map = useMemo(() => dynamic(() => import('../Map'), { ssr: false }), [location])
 
     const setCustumValue = (id: string, value: any) => {
         setValue(id, value, {
@@ -119,12 +123,44 @@ const RentModal = () => {
                     value={location}
                     onChange={(value) => setCustumValue('location', value)}
                 />
-                <Map 
+                <Map
                     center={location?.latlng}
                 />
             </div>
         );
     }
+
+    if (currentStep === STEPS.INFO) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title={t('Share some basics about your place')}
+                    subtitle={t('What ameneties do you have')}
+                />
+                <Counter 
+                    title={t('Guests')}
+                    subtitle={t('How many guests do you allow?')}
+                    value={guestCount}
+                    onChange={(value) => setCustumValue('guestCount', value)}
+                />
+                <hr />
+                <Counter 
+                    title={t('Rooms')}
+                    subtitle={t('How many rooms do you have?')}
+                    value={roomCount}
+                    onChange={(value) => setCustumValue('roomCount', value)}
+                />
+                <hr />
+                <Counter
+                    title={t('Bathrooms')}
+                    subtitle={t('How many bathroom do you have?')}
+                    value={bathroomCount}
+                    onChange={(value) => setCustumValue('bathroomCount', value)}
+                />
+            </div>
+        );
+    }
+
 
     return (
         <Modal
