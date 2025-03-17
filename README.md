@@ -64,16 +64,37 @@ NEXTAUTH_SECRET="your-nextauth-secret"
 GITHUB_ID="your-github-oauth-app-id"
 GITHUB_SECRET="your-github-oauth-app-secret"
 
+# Google OAuth
+GOOGLE_CLIENT_ID="your-google-oauth-client-id"
+GOOGLE_CLIENT_SECRET="your-google-oauth-client-secret"
+
+# Cloudinary Configuration
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your-cloudinary-cloud-name"
+NEXT_PUBLIC_CLOUDINARY_API_KEY="your-cloudinary-api-key"
+NEXT_PUBLIC_CLOUDINARY_API_SECRET="your-cloudinary-api-secret"
+
 # Next Auth Configuration
 NEXTAUTH_URL="http://localhost:3000"
 ```
 
-To set up GitHub OAuth:
+To set up OAuth and Cloudinary:
 1. Go to GitHub Settings > Developer settings > OAuth Apps
 2. Create a new OAuth application
 3. Set Homepage URL to `http://localhost:3000`
 4. Set Authorization callback URL to `http://localhost:3000/api/auth/callback/github`
 5. Copy the Client ID and Client Secret to your `.env` file
+
+6. Go to Google Cloud Console
+7. Create a new project or select an existing one
+8. Enable Google OAuth API
+9. Configure OAuth consent screen
+10. Create OAuth 2.0 credentials
+11. Add authorized redirect URI: `http://localhost:3000/api/auth/callback/google`
+12. Copy the Client ID and Client Secret to your `.env` file
+
+13. Create a Cloudinary account at https://cloudinary.com
+14. Go to your Cloudinary Dashboard
+15. Copy your Cloud Name, API Key, and API Secret to your `.env` file
 
 4. Run the development server:
 ```bash
@@ -193,6 +214,15 @@ NEXTAUTH_SECRET="nextauth-gizli-anahtarınız"
 # GitHub OAuth
 GITHUB_ID="github-oauth-uygulama-id'niz"
 GITHUB_SECRET="github-oauth-uygulama-gizli-anahtarınız"
+
+# Google OAuth
+GOOGLE_CLIENT_ID="google-oauth-istemci-id'niz"
+GOOGLE_CLIENT_SECRET="google-oauth-istemci-gizli-anahtarınız"
+
+# Cloudinary Yapılandırması
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="cloudinary-bulut-adınız"
+NEXT_PUBLIC_CLOUDINARY_API_KEY="cloudinary-api-anahtarınız"
+NEXT_PUBLIC_CLOUDINARY_API_SECRET="cloudinary-api-gizli-anahtarınız"
 
 # Next Auth Yapılandırması
 NEXTAUTH_URL="http://localhost:3000"
