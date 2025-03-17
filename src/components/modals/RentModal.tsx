@@ -13,6 +13,9 @@ import dynamic from "next/dynamic";
 import Counter from "../Inputs/Counter";
 import ImageUpload from "../Inputs/ImageUplad";
 import Input from "../Inputs/Input";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 enum STEPS {
     CATEGORY = 0,
@@ -24,6 +27,8 @@ enum STEPS {
 }
 
 const RentModal = () => {
+
+    const router = useRouter();
 
     const rentModal = useRentModal();
 
@@ -75,6 +80,30 @@ const RentModal = () => {
 
     const onNext = () => {
         setCurrentStep((value) => value + 1);
+    }
+
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        if (currentStep !== STEPS.PRICE) {
+                
+            return onNext();
+        }
+
+        setIsLoading(true);
+        axios.post('/api/listings', data)
+            .then((res) => {
+                console.log(res);
+                toast.success(t('Listing created!'))
+                router.refresh();
+                reset();
+                setCurrentStep(STEPS.CATEGORY);
+                rentModal.onClose();
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error(t('Something went wrong!'))
+                setIsLoading(false);
+            })
     }
 
     const actionLabel = useMemo(() => {
@@ -207,12 +236,33 @@ const RentModal = () => {
         );
     };
 
+    if(currentStep === STEPS.PRICE) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title={t('How, set your price?')}
+                    subtitle={t('How much do you have charge per night?')}
+                />
+                <Input
+                    id="price"
+                    label={t('RentalModalPrice')}
+                    formatPrice
+                    type="number"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+            </div>
+        );
+    }
+
 
     return (
         <Modal
             isOpen={rentModal.isOpen}
             onClose={rentModal.onClose}
-            onSubmit={onNext}
+            onSubmit={handleSubmit(onSubmit)}
             actionLabel={t(actionLabel, { action: "Next" })}
             secondaryActionLabel={t(secondaryActionLabel, { secondaryAction: "Back" })}
             secondaryAction={currentStep === STEPS.CATEGORY ? undefined : onBack}
