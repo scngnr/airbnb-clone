@@ -26,5 +26,6 @@
   "secondaryActionLabel" : "{secondaryAction}",
     
    "RentalModalDescriptionTitle": "Title",
-   "RentalModalDescription": "Description"
+   "RentalModalDescription": "Description",
+   "RentalModalPrice" : "Price"
 }
