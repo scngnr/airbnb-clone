@@ -27,5 +27,7 @@
     
    "RentalModalDescriptionTitle": "Title",
    "RentalModalDescription": "Description",
-   "RentalModalPrice" : "Price"
+   "RentalModalPrice" : "Price",
+
+   "my Future Listings": "My Future Listings"
 }
