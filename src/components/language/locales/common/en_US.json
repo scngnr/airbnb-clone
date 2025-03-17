@@ -23,5 +23,8 @@
   "null" : "",
   "undefined" : "",
   "actionLabel" : "{action}",
-  "secondaryActionLabel" : "{secondaryAction}"
+  "secondaryActionLabel" : "{secondaryAction}",
+    
+   "RentalModalDescriptionTitle": "Title",
+   "RentalModalDescription": "Description"
 }
