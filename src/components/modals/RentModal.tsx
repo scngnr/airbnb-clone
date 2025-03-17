@@ -12,6 +12,7 @@ import CountrySelect from "../Inputs/CountrySelect";
 import dynamic from "next/dynamic";
 import Counter from "../Inputs/Counter";
 import ImageUpload from "../Inputs/ImageUplad";
+import Input from "../Inputs/Input";
 
 enum STEPS {
     CATEGORY = 0,
@@ -27,6 +28,7 @@ const RentModal = () => {
     const rentModal = useRentModal();
 
     const [currentStep, setCurrentStep] = useState<STEPS>(STEPS.CATEGORY);
+    const [isLoading, setIsLoading] = useState(false);
 
     const {
         register,
@@ -139,14 +141,14 @@ const RentModal = () => {
                     title={t('Share some basics about your place')}
                     subtitle={t('What ameneties do you have')}
                 />
-                <Counter 
+                <Counter
                     title={t('Guests')}
                     subtitle={t('How many guests do you allow?')}
                     value={guestCount}
                     onChange={(value) => setCustumValue('guestCount', value)}
                 />
                 <hr />
-                <Counter 
+                <Counter
                     title={t('Rooms')}
                     subtitle={t('How many rooms do you have?')}
                     value={roomCount}
@@ -163,7 +165,7 @@ const RentModal = () => {
         );
     }
 
-    if(currentStep === STEPS.IMAGES){
+    if (currentStep === STEPS.IMAGES) {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading
@@ -177,6 +179,34 @@ const RentModal = () => {
             </div>
         );
     }
+
+    if (currentStep === STEPS.DESCRIPTION) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title={t('How would you describe your place?')}
+                    subtitle={t('Short and sweeet works best!')}
+                />
+                <Input 
+                    id="title"
+                    label={t('RentalModalDescriptionTitle')}
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+                <Input 
+                    id="title"
+                    label={t('RentalModalDescription')}
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+            </div>
+        );
+    };
+
 
     return (
         <Modal
