@@ -15,10 +15,12 @@ import Categories from "./Categories/Categories";
 
 interface NavbarProps {
     currentUser?: User | null;
-}
+}   
 
 const Navbar = ({ currentUser }: NavbarProps) => {
     const { t } = useTranslation();
+    
+
 
     const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newLang = e.target.value;
