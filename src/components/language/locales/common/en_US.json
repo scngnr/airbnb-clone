@@ -29,5 +29,8 @@
    "RentalModalDescription": "Description",
    "RentalModalPrice" : "Price",
 
-   "my Future Listings": "My Future Listings"
+   "my Future Listings": "My Future Listings",
+   "EmptyStateTitle": "No exact matches",
+   "EmptyStateSubtitle":"Try searching for something else",
+   "Reset": "Reset"
 }
