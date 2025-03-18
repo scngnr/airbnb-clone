@@ -4,7 +4,7 @@ import Container from "@/components/Container";
 import i18n from "../components/language/i18n";
 import { useTranslation } from "react-i18next";
 import EmptyState from "@/components/EmptyState";
-import {  useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Listing } from "@prisma/client";
 import axios from "axios";
 import ListingCard from "@/components/listings/ListingCard";
@@ -13,7 +13,7 @@ import { useUserContext } from "./_context/UserContext";
 export default function Home() {
   const [listings, setListings] = useState<Listing[]>([]);
   const { t, i18n: { language } } = useTranslation(); 
-  const {currentUser} = useUserContext();
+  const {currentUser } = useUserContext();
 
   useEffect(() => {
     async function fetchData() {
@@ -28,8 +28,7 @@ export default function Home() {
     fetchData();
   }, [listings] ); 
 
-
-  if (!language) { 
+  if (!language) {
     return null;
   }
 
@@ -52,7 +51,6 @@ export default function Home() {
               currentUser={currentUser}
             />
           ))}
-          
         </div>
       </Container>
     </ClientOnly>

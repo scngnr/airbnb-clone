@@ -7,6 +7,7 @@ import { format } from "date-fns/format";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import HeartButton from "../HeartButton";
+import Button from "../ui/Button";
 
 interface ListingCardProps {
     data: Listing;
@@ -96,10 +97,18 @@ const ListingCard = ({
                     <div className="font-semibold">
                         {price}
                     </div>
-                    {reservation && (
+                    {!reservation && (
                         <div className="font-ligt">night</div>
                     )}
                 </div>
+                {onAction && actionLabel &&(
+                    <Button
+                        disabled={disabled}
+                        small
+                        label={actionLabel}
+                        onClick={handleCancel}
+                    />
+                )}
             </div>
         </div>
     );
