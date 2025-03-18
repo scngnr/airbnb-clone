@@ -3,6 +3,22 @@ import { NextResponse } from "next/server";
 import prisma from "../../../libs/prismadb"
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
+// GET fonksiyonunu GET olarak adlandırın
+export async function GET() {
+  try {
+    const listings = await prisma.listing.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+    });
+    return NextResponse.json(listings); // NextResponse.json kullanın
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 }); // Hata durumunda NextResponse.json kullanın
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
 export async function POST(request: Request){
     const currentUser = await getCurrentUser();
 
@@ -23,17 +39,15 @@ export async function POST(request: Request){
         price,
     } = body;
 
-    
-
     const listing = await prisma.listing.create({
         data: {
-            title: body.title,
-            description: body.description,
-            imageSrc: body.imageSrc,
-            category: body.category,
-            roomCount: body.roomCount,
-            bathroomCount: body.bathroomCount,
-            guestCount: body.guestCount,
+            title: title,
+            description: description,
+            imageSrc: imageSrc,
+            category: category,
+            roomCount: roomCount,
+            bathroomCount: bathroomCount,
+            guestCount: guestCount,
             locationValue: location.value,
             price: parseInt(price, 10),
             userId: currentUser.id,
