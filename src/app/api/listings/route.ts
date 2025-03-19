@@ -11,7 +11,12 @@ export async function GET() {
           createdAt: 'desc',
         },
     });
-    return NextResponse.json(listings); // NextResponse.json kullanın
+
+    const safeListings = listings.map((listing) => ({
+      ...listing,
+      createdAt: listing.createdAt.toISOString(),
+    }));
+    return NextResponse.json(safeListings); // NextResponse.json kullanın
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 }); // Hata durumunda NextResponse.json kullanın
   } finally {
