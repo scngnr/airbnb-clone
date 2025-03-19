@@ -2,7 +2,7 @@ import prisma from "@app/../../src/libs/prismadb";
 import { NextResponse } from "next/server";
 
 interface IParams {
-  listingId?: string;
+    listingId?: string;
 }
 
 export async function POST(
@@ -24,13 +24,22 @@ export async function POST(
             },
         });
 
-        if(!listing){
+        if (!listing) {
             return null;
         }
-        
-        return NextResponse.json(listing);
+
+        return {
+            ...listing,
+            createdAt: listing.createdAt.toISOString(),
+            user: {
+                ...listing.user,
+                createdAt: listing.user.createdAt.toISOString(),
+                updatedAt: listing.user.updatedAt.toISOString(),
+                emailVerified: listing.user.emailVerified?.toISOString() || null,
+            },
+        };
     } catch (error) {
-        
+        throw new Error('Invalid ID');
     }
-    
+
 }
