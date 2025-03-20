@@ -13,9 +13,17 @@ A modern web application that replicates core Airbnb functionality, built with N
 - TypeScript for type safety
 - Component-based architecture
 - Responsive navigation system
-- User authentication system
-- Interactive search functionality
+- User authentication with NextAuth (GitHub & Google OAuth)
+- Interactive search functionality with filters
 - Mobile-first design approach
+- Multi-language support (English & Turkish)
+- Property listing management
+- Interactive map integration with location search
+- Favorite listings system
+- Image upload with Cloudinary
+- Reservation system
+- Category-based filtering
+- Toast notifications for user feedback
 
 ## 🛠️ Tech Stack
 
@@ -164,9 +172,17 @@ Next.js 15 ve TypeScript ile geliştirilmiş, Airbnb'nin temel işlevselliğini 
 - TypeScript ile tip güvenliği
 - Bileşen tabanlı mimari
 - Duyarlı gezinme sistemi
-- Kullanıcı kimlik doğrulama sistemi
-- Etkileşimli arama işlevselliği
+- NextAuth ile kullanıcı kimlik doğrulama (GitHub ve Google OAuth)
+- Filtreli etkileşimli arama işlevselliği
 - Önce mobil tasarım yaklaşımı
+- Çoklu dil desteği (İngilizce ve Türkçe)
+- İlan yönetim sistemi
+- Konum aramalı etkileşimli harita entegrasyonu
+- Favori ilanlar sistemi
+- Cloudinary ile resim yükleme
+- Rezervasyon sistemi
+- Kategori bazlı filtreleme
+- Kullanıcı bildirimleri için toast mesajları
 
 ## 🛠️ Teknoloji Stack
 
