@@ -1,17 +1,17 @@
 "use client"
 
-import { User } from "@prisma/client";
 import { createContext, useContext } from "react";
+import { SafeUser } from "@/app/types";
 
 type UserContextType = {
-  currentUser: User | null;
+  currentUser: SafeUser | null;
 }
 
 const UserDataContext = createContext<UserContextType>({ currentUser: null });
 
 interface UserDataProviderProps {
   children: React.ReactNode;
-  currentUser: User | null;
+  currentUser: SafeUser | null;
 }
 
 export const UserDataProvider = ({ children, currentUser }: UserDataProviderProps) => {

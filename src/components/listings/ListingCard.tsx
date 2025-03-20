@@ -3,12 +3,12 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import { format } from "date-fns/format";
 import HeartButton from "../HeartButton";
-import { SafeListing } from "@/app/types";
+import { SafeListing, SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import useCountries from "@/hooks/useCountries";
-import { Reservation, User } from "@prisma/client";
+import { Reservation } from "@prisma/client";
 
 interface ListingCardProps {
     data: SafeListing;
@@ -17,7 +17,7 @@ interface ListingCardProps {
     disabled?: boolean;
     actionLabel?: string;
     actionId?: string;
-    currentUser?: User | null;
+    currentUser?: SafeUser | null;
 }
 
 const ListingCard = ({
