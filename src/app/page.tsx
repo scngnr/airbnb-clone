@@ -1,32 +1,42 @@
 "use client";
-import ClientOnly from "@/components/ClientOnly";
+
 import Container from "@/components/Container";
 import i18n from "../components/language/i18n";
 import { useTranslation } from "react-i18next";
 import EmptyState from "@/components/EmptyState";
-import {  useEffect, useState } from "react";
-import { Listing } from "@prisma/client";
-import axios from "axios";
-import ListingCard from "@/components/listings/ListingCard";
+import ClientOnly from "@/components/ClientOnly";
 import { useUserContext } from "./_context/UserContext";
+import ListingCard from "@/components/listings/ListingCard";
+import useGetListingsPage from "@/hooks/listings/useGetListingsPage";
 
 export default function Home() {
-  const [listings, setListings] = useState<Listing[]>([]);
   const { t, i18n: { language } } = useTranslation(); 
+
   const {currentUser } = useUserContext();
+  
+  const { listings, loading, error } = useGetListingsPage();
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get('/api/listings');
-        setListings(response.data);
-      } catch (error) {
-        console.error('Veri alınırken hata oluştu:', error);
-      }
-    }
+  if (loading) {
+    return (
+      <ClientOnly>
+        <EmptyState
+          title="Loading..."
+          subtitle="Please wait while we fetch the listings"
+        />
+      </ClientOnly>
+    );
+  }
 
-    fetchData();
-  }, [listings] ); 
+  if (error) {
+    return (
+      <ClientOnly>
+        <EmptyState
+          title="Error"
+          subtitle="An error occurred while fetching listings"
+        />
+      </ClientOnly>
+    );
+  }
 
   if (!language) {
     return null;
