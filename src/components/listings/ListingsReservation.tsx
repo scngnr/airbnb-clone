@@ -1,6 +1,7 @@
 "use client";
 
 import Calendar from "../Inputs/Calendar";
+import Button from "../ui/Button";
 
 interface ListingReservationProps {
     price: number;
@@ -38,6 +39,11 @@ const ListingReservation = ({
                 onChange={(value) => onChangeDate(value.selection)}
             />
             <hr/>
+            <Button
+                disabled={disabled}
+                label="Reserve now"
+                onClick={onSubmit}
+            />
             <div className="p-4 flex flex-row items-center justify-between font-semibold text-lg">
                 <div className="">
                     Total
